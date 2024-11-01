@@ -2,17 +2,17 @@
 pragma solidity ^0.8.13;
 
 import {Script, console} from "forge-std/Script.sol";
-import {Counter} from "../src/Counter.sol";
+import {BeraCopy} from "../src/BeraCopy.sol";
 
-contract CounterScript is Script {
-    Counter public counter;
+contract BeraCopyScript is Script {
+    BeraCopy public beraCopy;
 
     function setUp() public {}
 
     function run() public {
         vm.startBroadcast();
 
-        counter = new Counter();
+        beraCopy = new BeraCopy(address(0x123));
 
         vm.stopBroadcast();
     }
