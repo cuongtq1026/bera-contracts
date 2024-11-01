@@ -6,7 +6,7 @@ import {BeraCopy} from "../src/BeraCopy.sol";
 
 contract BeraCopyTest is Test {
     BeraCopy public beraCopy;
-     address private MOCK_OWNER = address(0x123);
+    address private MOCK_OWNER = address(0x123);
 
     function setUp() public {
         beraCopy = new BeraCopy(MOCK_OWNER);
