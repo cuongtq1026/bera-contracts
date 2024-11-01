@@ -23,11 +23,11 @@ contract BeraCopy {
         uint128 _amount,
         uint128 _minOut
     ) public payable onlyOwner returns (uint128 out) {
-        uint128 out = dex.multiSwap(_steps, _amount, _minOut);
+        uint128 result = dex.multiSwap(_steps, _amount, _minOut);
 
-        emit CopyTrade(dex, out);
+        emit CopyTrade(address(dex), result);
 
-        return out;
+        return result;
     }
 
     function previewMultiSwap(IBeraCrocMultiSwap dex, IBeraCrocMultiSwap.SwapStep[] calldata _steps, uint128 _amount)
