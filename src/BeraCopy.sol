@@ -4,6 +4,8 @@ pragma solidity ^0.8.10;
 import {IBeraCrocMultiSwap} from "./interfaces/IBeraCrocMultiSwap.sol";
 
 contract BeraCopy {
+    event CopyTrade(address indexed dex, uint256 indexed out);
+
     address public owner;
 
     constructor(address newOwner) {
@@ -21,7 +23,11 @@ contract BeraCopy {
         uint128 _amount,
         uint128 _minOut
     ) public payable onlyOwner returns (uint128 out) {
-        return dex.multiSwap(_steps, _amount, _minOut);
+        uint128 out = dex.multiSwap(_steps, _amount, _minOut);
+
+        emit CopyTrade(dex, out);
+
+        return out;
     }
 
     function previewMultiSwap(IBeraCrocMultiSwap dex, IBeraCrocMultiSwap.SwapStep[] calldata _steps, uint128 _amount)
