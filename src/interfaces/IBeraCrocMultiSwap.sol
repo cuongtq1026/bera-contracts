@@ -9,14 +9,13 @@ interface IBeraCrocMultiSwap {
         bool isBuy;
     }
 
-    function multiSwap(
-        SwapStep[] memory _steps,
-        uint128 _amount,
-        uint128 _minOut
-    ) external payable returns (uint128 out);
+    function multiSwap(SwapStep[] memory _steps, uint128 _amount, uint128 _minOut)
+        external
+        payable
+        returns (uint128 out);
 
-    function previewMultiSwap(
-        IBeraCrocMultiSwap.SwapStep[] calldata _steps,
-        uint128 _amount
-    ) external view returns (uint128 out, uint256 predictedQty);
+    function previewMultiSwap(IBeraCrocMultiSwap.SwapStep[] calldata _steps, uint128 _amount)
+        external
+        view
+        returns (uint128 out, uint256 predictedQty);
 }

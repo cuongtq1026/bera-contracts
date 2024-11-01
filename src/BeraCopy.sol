@@ -10,7 +10,7 @@ contract BeraCopy {
         owner = newOwner;
     }
 
-    modifier onlyOwner {
+    modifier onlyOwner() {
         require(msg.sender == owner);
         _;
     }
@@ -20,15 +20,16 @@ contract BeraCopy {
         IBeraCrocMultiSwap.SwapStep[] memory _steps,
         uint128 _amount,
         uint128 _minOut
-    ) onlyOwner public payable returns (uint128 out) {
+    ) public payable onlyOwner returns (uint128 out) {
         return dex.multiSwap(_steps, _amount, _minOut);
     }
 
-    function previewMultiSwap(
-        IBeraCrocMultiSwap dex,
-        IBeraCrocMultiSwap.SwapStep[] calldata _steps,
-        uint128 _amount
-    ) onlyOwner public view returns (uint128 out, uint256 predictedQty) {
+    function previewMultiSwap(IBeraCrocMultiSwap dex, IBeraCrocMultiSwap.SwapStep[] calldata _steps, uint128 _amount)
+        public
+        view
+        onlyOwner
+        returns (uint128 out, uint256 predictedQty)
+    {
         return dex.previewMultiSwap(_steps, _amount);
     }
 }
