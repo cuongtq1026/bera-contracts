@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
 
-import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
+import {AccessControl} from "../dependencies/@openzeppelin-contracts-5.0.2/access/AccessControl.sol";
 import {IBeraCrocMultiSwap} from "./interfaces/IBeraCrocMultiSwap.sol";
 import {BeraCopyNFT} from "./BeraCopyNFT.sol";
 
@@ -15,8 +15,9 @@ contract BeraCopy is AccessControl {
 
     error CallerRestricted(address caller);
 
-    constructor(uint256 _tokenId, address minter) {
+    constructor(uint256 _tokenId, address minter, BeraCopyNFT _beraCopyNFT) {
         tokenId = _tokenId;
+        beraCopyNFT = _beraCopyNFT;
 
         _grantRole(MINTER_ROLE, minter);
     }

@@ -11,23 +11,23 @@ import {BeraCopyFactory} from "../src/BeraCopyFactory.sol";
 import {BeraCopyNFT} from "../src/BeraCopyNFT.sol";
 
 contract DeployBeraCopyFactoryScript is Script {
-    BeraCopyNFT public beraCopyNFT;
-
-    function setUp() public {
-        beraCopyNFT = new BeraCopyNFT();
-    }
+    function setUp() public {}
 
     function run() public {
         // Start the broadcast to deploy the contract
         vm.startBroadcast();
 
-        // Deploy YourContract with the BeraCopyNFT instance
-        BeraCopyFactory factory = new BeraCopyFactory(beraCopyNFT);
+        // Deploy BeraCopyNFT instance
+        BeraCopyNFT beraCopyNFT = new BeraCopyNFT();
+
+        // Deploy BeraCopyFactory with the BeraCopyNFT instance
+        BeraCopyFactory factory = new BeraCopyFactory(beraCopyNFT, msg.sender);
 
         // Stop broadcasting
         vm.stopBroadcast();
 
         // Optional: Print the address of the deployed contract
+        console.log("BeraCopyNFT deployed to:", address(beraCopyNFT));
         console.log("BeraCopyFactory deployed to:", address(factory));
     }
 }

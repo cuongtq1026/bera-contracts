@@ -17,7 +17,7 @@ contract BeraCopyTest is Test, BeraCopyNFT {
         _mintNFT(MOCK_OWNER, tokenId); // Mint NFT to MOCK_OWNER
 
         mockDex = new MockBeraCrocMultiSwap();
-        beraCopy = new BeraCopy(tokenId, MOCK_OWNER);
+        beraCopy = new BeraCopy(tokenId, MOCK_OWNER, this);
 
         vm.prank(MOCK_OWNER);
         beraCopy.setBeraCopyNFT(address(this));
