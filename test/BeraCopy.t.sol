@@ -53,11 +53,7 @@ contract BeraCopyTest is Test, BeraCopyNFT {
 }
 
 contract MockBeraCrocMultiSwap is IBeraCrocMultiSwap {
-    function multiSwap(IBeraCrocMultiSwap.SwapStep[] memory, uint128, uint128)
-        public
-        payable
-        returns (uint128)
-    {
+    function multiSwap(IBeraCrocMultiSwap.SwapStep[] memory, uint128, uint128) public payable returns (uint128) {
         return 12345;
     }
 
