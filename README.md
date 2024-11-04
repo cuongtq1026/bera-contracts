@@ -1,66 +1,23 @@
-## Foundry
+# Bera Contracts
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+**This project provides a set of smart contracts that are used by [bera-explorer](https://github.com/cuongtq1026/bera-explorer)**.
 
-Foundry consists of:
+## Contracts
+- ✅ **BeraCopyFactory**: Contract that creates `BeraCopyNFT` and `BeraCopy`.
+- ✅ **BeraCopyNFT**: NFT that represents a `BeraCopy`.
+- ✅ **BeraCopy**: Contract for copy `BEX` swaps.
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+✅: Tested
 
-## Documentation
+## Technologies
+- Foundry (Smart contract development)
+- Solidity (Smart contract language)
+- OpenZeppelin (Smart contract libraries)
 
-https://book.getfoundry.sh/
+## Scripts
+- **DeployBeraCopyFactory**: Deploy `BeraCopyFactory` to the network.
 
-## Usage
-
-### Build
-
-```shell
-$ forge build
-```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+# Contacts
+| **Name**       | **Linkedin**                                           | Github                                   |
+|----------------|--------------------------------------------------------|------------------------------------------|
+| **Cuong Tran** | [LinkedIn](https://www.linkedin.com/in/cuongtran1026/) | [Github](https://github.com/cuongtq1026) |   |
