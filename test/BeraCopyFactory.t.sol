@@ -9,6 +9,7 @@ contract BeraCopyFactoryTest is Test {
     BeraCopyNFT private beraCopyNFT;
     BeraCopyFactory private factory;
     address private MOCK_OWNER = address(0x123);
+    address private MOCK_TARGET = address(0x234);
     // uint256 private constant tokenId = 1;
 
     function setUp() public {
@@ -19,9 +20,11 @@ contract BeraCopyFactoryTest is Test {
     function test_createCopyContract() public {
         vm.prank(MOCK_OWNER);
 
-        (address createdAddress, uint256 newTokenId, address creator) = factory.createCopyContract();
+        (address createdAddress, uint256 newTokenId, address creator, address target) =
+            factory.createCopyContract(MOCK_TARGET);
 
         assertEq(creator, MOCK_OWNER);
+        assertEq(target, MOCK_TARGET);
         assertEq(beraCopyNFT.ownerOf(newTokenId), MOCK_OWNER);
 
         assertEq(factory.isCreated(createdAddress), true);
